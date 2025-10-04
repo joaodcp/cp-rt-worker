@@ -1,0 +1,10 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "cp",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-10-04",
+	"observability": {
+		"enabled": true
+	},
+	"compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"]
+}

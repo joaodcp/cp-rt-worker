@@ -57,6 +57,10 @@ async function getAllStations(): Promise<Station[]> {
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+		if (request.headers.get('Authorization') !== `Bearer ${process.env.WORKER_KEY!}`) {
+			return new Response('Unauthorized', { status: 401 });
+		}
+
 		const { pathname, searchParams } = new URL(request.url);
 		const pathnameParts = pathname.split('/').filter(Boolean);
 
